@@ -1,6 +1,6 @@
-package cola;
+package lab1jh.cola;
 
-import lista.Lista;
+import lab1jh.lista.Lista;
 
 public class Cola<Tipo> {
     private Lista<Tipo> lista;
@@ -26,7 +26,7 @@ public class Cola<Tipo> {
         return lista.getLenght() == 0 ? true : false;
     }
 
-    public void clear() { // TODO inicializar y limpiar redundante
+    public void clear() { // inicializar y limpiar redundante
         lista.clear();
     }
 
@@ -41,7 +41,7 @@ public class Cola<Tipo> {
     public void print() {
         String str = "";
         str += "    Elementos en cola: " + getLength() + "\n";
-        str += "    Ultimo:  " + lista.getDato(getLength() - 1) + "\n"; // TODO 1 menos que el numero de elementos
+        str += "    Ultimo:  " + lista.getDato(getLength() - 1) + "\n"; // 1 menos que el numero de elementos
         str += "    Primero: " + lista.getDato(0) + "\n";
         str += "    Cola:\n" + lista;
         System.out.println(str);

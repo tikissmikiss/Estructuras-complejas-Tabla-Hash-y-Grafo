@@ -1,4 +1,4 @@
-package demo.blackjack;
+package lab1jh.demo.blackjack;
 
 public class Carta {
     private Palo palo;

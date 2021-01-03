@@ -1,14 +1,14 @@
-package demo;
+package lab1jh.demo;
 
-import cola.Cola;
-import demo.blackjack.Baraja;
-import demo.blackjack.Carta;
-import demo.blackjack.Jugador;
-import demo.blackjack.UI;
-import demo.util.io;
-import pila.Pila;
+import lab1jh.cola.Cola;
+import lab1jh.demo.blackjack.Baraja;
+import lab1jh.demo.blackjack.Carta;
+import lab1jh.demo.blackjack.Jugador;
+import lab1jh.demo.blackjack.UI;
+import lab1jh.demo.util.io;
+import lab1jh.pila.Pila;
 
-public class DemoUsoTADs {
+public class DemoUso {
     private static final int NUM_JUGADORES = 6;
     private static final int NUM_RONDAS = 2;
     private static final int NUMERO_PALOS = 4;

@@ -1,4 +1,4 @@
-package lista;
+package lab1jh.lista;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class Lista<T> {
             nuevo.setAnterior(cola);
             cola = nuevo;
         }
-        return true; // TODO no seria necesario devolver. siempre inserta. pero por unificar
+        return true; // no seria necesario devolver. siempre inserta. pero por unificar
     }
 
     /**
@@ -149,7 +149,7 @@ public class Lista<T> {
      * @return El Nodo de la posicion seleccionada. Si la poscion esta fuera de
      *         rango se devuelve null
      */
-    public T getDato(int posicion) { // TODO añadir a memoria
+    public T getDato(int posicion) { // añadir a memoria
         if (cabeza == null)
             return null;
         return buscarNodo(posicion).getDato();
@@ -327,14 +327,14 @@ public class Lista<T> {
      *************************************************************************/
 
     @Override
-    public String toString() { // TODO actualizar documentacion
+    public String toString() { // actualizar documentacion
         String str = "";
         if (cabeza == null) {
             str = "- Lista Vacia -\n";
         } else {
             Nodo<T> aux = cabeza;
             for (int i = 0; i < length; i++) {
-                str += "        [ " + i + ": " + aux + " ]"; // TODO MEM no hace falta aux.toString()
+                str += "        [ " + i + ": " + aux + " ]"; // no hace falta aux.toString()
                 aux = aux.getSiguiente();
                 if (aux != null)
                     str += "\n";

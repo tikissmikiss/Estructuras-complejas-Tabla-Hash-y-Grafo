@@ -1,6 +1,6 @@
-package demo;
+package lab1jh.demo;
 
-import demo.util.io;
+import lab1jh.demo.util.io;
 
 public class Demo {
     public static boolean stepByStep;
@@ -17,9 +17,9 @@ public class Demo {
                 System.out.println("Respuesta no aceptada...");
         } while (!(rsp.equals("y") || rsp.equals("n")));
 
-        demo.DemoTADLista.main(args);
-        demo.DemoTADPila.main(args);
-        demo.DemoTADCola.main(args);
-        demo.DemoUsoTADs.main(args);
+        lab1jh.demo.DemoLista.main(args);
+        lab1jh.demo.DemoPila.main(args);
+        lab1jh.demo.DemoCola.main(args);
+        lab1jh.demo.DemoUso.main(args);
     }
 }

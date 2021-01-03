@@ -1,8 +1,7 @@
-package demo.blackjack;
+package lab1jh.demo.blackjack;
 
-import demo.DemoUsoTADs;
-// import demo.util;
-import demo.util.io;
+import lab1jh.demo.DemoUso;
+import lab1jh.demo.util.io;
 
 public class UI {
 
@@ -53,21 +52,21 @@ public class UI {
 	public static void turnoCrupier(int ronda, Jugador jugador) {
 		System.out.println();
 		System.out.println("- El crupier descubre su carta");
-		DemoUsoTADs.crupier.getMano().getCima().setVisibilidad(Carta.VISIBLE);
+		DemoUso.crupier.getMano().getCima().setVisibilidad(Carta.VISIBLE);
 
 		boolean plantado = false;
 		while (!plantado) {
 			UI.printMesa(ronda, jugador);
 
-			System.out.println("- Juega " + DemoUsoTADs.crupier);
-			if (jugador.getPuntuacion() <= 21 && jugador.getPuntuacion() > DemoUsoTADs.crupier.getPuntuacion()
-					&& DemoUsoTADs.crupier.getPuntMin() < 21) {
+			System.out.println("- Juega " + DemoUso.crupier);
+			if (jugador.getPuntuacion() <= 21 && jugador.getPuntuacion() > DemoUso.crupier.getPuntuacion()
+					&& DemoUso.crupier.getPuntMin() < 21) {
 				System.out.println("Pide carta...");
 				io.esperarUsuario();
-				DemoUsoTADs.crupier.recibirCarta(DemoUsoTADs.mazo.darCarta(Carta.VISIBLE));
+				DemoUso.crupier.recibirCarta(DemoUso.mazo.darCarta(Carta.VISIBLE));
 			} else {
 				plantado = true;
-				System.out.println(" Se planta con " + DemoUsoTADs.crupier.getPuntuacion() + " puntos");
+				System.out.println(" Se planta con " + DemoUso.crupier.getPuntuacion() + " puntos");
 				io.esperarUsuario();
 			}
 		}
@@ -82,7 +81,7 @@ public class UI {
 			if (jugador.getPuntMin() <= maxToPlay) {
 				System.out.println("Pide carta...");
 				io.esperarUsuario();
-				jugador.recibirCarta(DemoUsoTADs.mazo.darCarta(Carta.VISIBLE));
+				jugador.recibirCarta(DemoUso.mazo.darCarta(Carta.VISIBLE));
 			} else {
 				plantado = true;
 				System.out.println(" Se planta con " + jugador.getPuntuacion() + " puntos");
@@ -93,7 +92,7 @@ public class UI {
 
 	public static void comprobarBJCrupier(int ronda, Jugador jugador) {
 		System.out.println("- El crupier descubre su carta");
-		DemoUsoTADs.crupier.getMano().getCima().setVisibilidad(Carta.VISIBLE);
+		DemoUso.crupier.getMano().getCima().setVisibilidad(Carta.VISIBLE);
 
 		UI.printMesa(ronda, jugador);
 		jugador.resetPuntuacion();
@@ -169,7 +168,7 @@ public class UI {
 
 	public static String comprobarGanador(Jugador jugador) {
 		int pntJug = jugador.getPuntuacion();
-		int pntCru = DemoUsoTADs.crupier.getPuntuacion();
+		int pntCru = DemoUso.crupier.getPuntuacion();
 		if (pntJug == pntCru) {
 			return " >>> Empate <<<";
 		}
@@ -177,19 +176,19 @@ public class UI {
 			jugador.addWin();
 			return " >>> Gana " + jugador + " <<<";
 		}
-		DemoUsoTADs.crupier.addWin();
-		return " >>> Gana " + DemoUsoTADs.crupier + " <<<";
+		DemoUso.crupier.addWin();
+		return " >>> Gana " + DemoUso.crupier + " <<<";
 	}
 
 	public static void printMesa(int ronda, Jugador jugador) {
 		System.out.println(io.box('=', ancho, '='));
 		System.out.println(io.linea(" Ronda " + ronda + "  |  " + jugador.getNombre(), 60, "|"));
 		System.out.println(io.box('-', ancho, '|'));
-		System.out.println(io.linea(" Cartas mazo: " + DemoUsoTADs.mazo.getLength(), 60, "|"));
+		System.out.println(io.linea(" Cartas mazo: " + DemoUso.mazo.getLength(), 60, "|"));
 		System.out.println(io.box('=', ancho, '|'));
-		System.out.println(io.linea(" Mano " + DemoUsoTADs.crupier.getNombre() + "     >>> "
-				+ UI.stringPuntuacion(DemoUsoTADs.crupier) + " <<<", 60, "|"));
-		System.out.println(DemoUsoTADs.crupier.manoToString());
+		System.out.println(io.linea(" Mano " + DemoUso.crupier.getNombre() + "     >>> "
+				+ UI.stringPuntuacion(DemoUso.crupier) + " <<<", 60, "|"));
+		System.out.println(DemoUso.crupier.manoToString());
 		System.out.println(io.box('-', ancho, '|'));
 		System.out.println(
 				io.linea(" Mano " + jugador.getNombre() + "   >>> " + UI.stringPuntuacion(jugador) + " <<<", 60, "|"));

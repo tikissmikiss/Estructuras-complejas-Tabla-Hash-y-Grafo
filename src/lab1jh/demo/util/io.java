@@ -1,10 +1,10 @@
-package demo.util;
+package lab1jh.demo.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import demo.Demo;
+import lab1jh.demo.Demo;
 
 public class io {
 

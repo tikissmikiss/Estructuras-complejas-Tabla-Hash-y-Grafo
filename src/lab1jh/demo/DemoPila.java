@@ -1,11 +1,11 @@
-package demo;
+package lab1jh.demo;
 
 import java.util.ArrayList;
 
-import demo.util.io;
-import pila.Pila;
+import lab1jh.demo.util.io;
+import lab1jh.pila.Pila;
 
-public class DemoTADPila {
+public class DemoPila {
 
     public static void main(String[] args) { 
         

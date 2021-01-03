@@ -1,4 +1,4 @@
-package lista;
+package lab1jh.lista;
 
 
 class Nodo<Tipo> {

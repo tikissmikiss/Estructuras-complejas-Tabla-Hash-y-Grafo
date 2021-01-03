@@ -1,9 +1,9 @@
-package demo;
+package lab1jh.demo;
 
-import demo.util.io;
-import lista.Lista;
+import lab1jh.demo.util.io;
+import lab1jh.lista.Lista;
 
-public class DemoTADLista {
+public class DemoLista {
     public static void main(String[] args) {
 
         testNodoVacio();

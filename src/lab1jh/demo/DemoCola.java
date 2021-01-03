@@ -1,11 +1,11 @@
-package demo;
+package lab1jh.demo;
 
 import java.util.ArrayList;
 
-import cola.Cola;
-import demo.util.io;
+import lab1jh.cola.Cola;
+import lab1jh.demo.util.io;
 
-public class DemoTADCola {
+public class DemoCola {
     public static void main(String[] args) {
 
         testCola();

@@ -1,6 +1,6 @@
-package pila;
+package lab1jh.pila;
 
-import lista.Lista;
+import lab1jh.lista.Lista;
 
 public class Pila<Tipo> {
     private Lista<Tipo> lista;
@@ -30,7 +30,7 @@ public class Pila<Tipo> {
         return lista.getLenght() == 0 ? true : false;
     }
 
-    public void clear() { // TODO es redundante
+    public void clear() { // es redundante
         lista.clear();
     }
 

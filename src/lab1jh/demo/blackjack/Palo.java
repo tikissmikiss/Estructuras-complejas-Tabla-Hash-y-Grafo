@@ -1,4 +1,4 @@
-package demo.blackjack;
+package lab1jh.demo.blackjack;
 
 enum Palo {
     ROMBOS("Rombos   "), PIKAS("Pikas    "), CORAZONES("Corazones"), TREBOLES("Treboles ");
