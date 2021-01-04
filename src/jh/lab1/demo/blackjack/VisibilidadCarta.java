@@ -1,4 +1,4 @@
-package lab1jh.demo.blackjack;
+package jh.lab1.demo.blackjack;
 
 enum VisibilidadCarta {
     DESCUBIERTA, CUBIERTA;

@@ -1,7 +1,7 @@
-package lab1jh.demo;
+package jh.lab1.demo;
 
-import lab1jh.demo.util.io;
-import lab1jh.lista.Lista;
+import jh.util.io;
+import jh.lab1.lista.Lista;
 
 public class DemoLista {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package lab1jh.pila;
+package jh.lab1.pila;
 
-import lab1jh.lista.Lista;
+import jh.lab1.lista.Lista;
 
 public class Pila<Tipo> {
     private Lista<Tipo> lista;

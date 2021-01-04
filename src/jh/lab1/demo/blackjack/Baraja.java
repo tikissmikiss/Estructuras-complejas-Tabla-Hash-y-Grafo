@@ -1,9 +1,9 @@
-package lab1jh.demo.blackjack;
+package jh.lab1.demo.blackjack;
 
 import java.util.Random;
 
-import lab1jh.cola.Cola;
-import lab1jh.lista.Lista;
+import jh.lab1.cola.Cola;
+import jh.lab1.lista.Lista;
 
 public class Baraja {
     private static final int NUMERO_MEZCLAS = 4;

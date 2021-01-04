@@ -1,7 +1,7 @@
-package lab1jh.demo.blackjack;
+package jh.lab1.demo.blackjack;
 
-import lab1jh.demo.util.io;
-import lab1jh.pila.Pila;
+import jh.util.io;
+import jh.lab1.pila.Pila;
 
 public class Jugador {
     private String nombre;

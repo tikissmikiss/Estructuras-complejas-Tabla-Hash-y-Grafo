@@ -1,6 +1,4 @@
-package lab1jh.lista;
-
-import java.util.ArrayList;
+package jh.lab1.lista;
 
 public class Lista<T> {
     /*
@@ -257,7 +255,7 @@ public class Lista<T> {
      * Busqueda recursiva de un nodo
      * 
      * @param nodoBuscado Nodo que se busca
-     * @param nodoActual        Nodo a comparar
+     * @param nodoActual  Nodo a comparar
      * @return Devuelve el nodo encontrado o null si no lo encuentra
      */
     private Nodo<T> buscarNodo(Nodo<T> nodoBuscado, Nodo<T> nodoActual) {
@@ -333,11 +331,12 @@ public class Lista<T> {
             str = "- Lista Vacia -\n";
         } else {
             Nodo<T> aux = cabeza;
+            str += "Size=" + length + ":";
             for (int i = 0; i < length; i++) {
-                str += "        [ " + i + ": " + aux + " ]"; // no hace falta aux.toString()
+                str += "[" + i + ":" + aux + "]"; // no hace falta aux.toString()
                 aux = aux.getSiguiente();
                 if (aux != null)
-                    str += "\n";
+                    str += ", ";
             }
         }
         return str;

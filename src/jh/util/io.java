@@ -1,10 +1,14 @@
-package lab1jh.demo.util;
+package jh.util;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import lab1jh.demo.Demo;
+import jh.lab1.cola.Cola;
+import jh.lab1.demo.Demo;
+import jh.lab1.lista.Lista;
 
 public class io {
 
@@ -129,4 +133,69 @@ public class io {
         return string;
     }
 
+    public static void leerFichero(String path) {
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            // Apertura del fichero y creacion de BufferedReader para poder
+            // hacer una lectura comoda (disponer del metodo readLine()).
+            archivo = new File(path);
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+
+            // Lectura del fichero
+            String linea;
+            while ((linea = br.readLine()) != null)
+                System.out.println(linea);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Siempre cerramos el fichero
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+    
+    public static String[] lineasFichero(String path) {
+        Cola<String> lista = new Cola<>();
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            // Apertura del fichero y creacion de BufferedReader para poder
+            // hacer una lectura comoda (disponer del metodo readLine()).
+            archivo = new File(path);
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+
+            // Lectura del fichero
+            String linea;
+            while ((linea = br.readLine()) != null)
+            lista.encolar(linea);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Siempre cerramos el fichero
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        String[] s = new String[lista.getLength()];
+        for (int i = 0; i < s.length; i++) {
+            s[i] = lista.desencolar();
+        }
+        return s;
+    }
 }

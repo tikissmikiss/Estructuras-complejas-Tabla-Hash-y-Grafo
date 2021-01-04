@@ -1,7 +1,7 @@
-package lab1jh.demo.blackjack;
+package jh.lab1.demo.blackjack;
 
-import lab1jh.demo.DemoUso;
-import lab1jh.demo.util.io;
+import jh.lab1.demo.DemoUso;
+import jh.util.io;
 
 public class UI {
 

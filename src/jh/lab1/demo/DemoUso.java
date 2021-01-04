@@ -1,12 +1,12 @@
-package lab1jh.demo;
+package jh.lab1.demo;
 
-import lab1jh.cola.Cola;
-import lab1jh.demo.blackjack.Baraja;
-import lab1jh.demo.blackjack.Carta;
-import lab1jh.demo.blackjack.Jugador;
-import lab1jh.demo.blackjack.UI;
-import lab1jh.demo.util.io;
-import lab1jh.pila.Pila;
+import jh.lab1.cola.Cola;
+import jh.lab1.demo.blackjack.Baraja;
+import jh.lab1.demo.blackjack.Carta;
+import jh.lab1.demo.blackjack.Jugador;
+import jh.lab1.demo.blackjack.UI;
+import jh.util.io;
+import jh.lab1.pila.Pila;
 
 public class DemoUso {
     private static final int NUM_JUGADORES = 6;

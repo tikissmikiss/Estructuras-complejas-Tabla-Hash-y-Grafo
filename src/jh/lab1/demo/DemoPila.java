@@ -1,29 +1,29 @@
-package lab1jh.demo;
+package jh.lab1.demo;
 
 import java.util.ArrayList;
 
-import lab1jh.cola.Cola;
-import lab1jh.demo.util.io;
+import jh.util.io;
+import jh.lab1.pila.Pila;
 
-public class DemoCola {
-    public static void main(String[] args) {
+public class DemoPila {
 
-        testCola();
+    public static void main(String[] args) { 
+        
+        testPila();
 
-    }
+	}
 
-    private static void testCola() {
+    private static void testPila() {
         System.out.println(io.box('*', 60, '*'));
-        System.out.println(io.linea(" Test aniadir Cola ", 60, "*"));
+        System.out.println(io.linea(" Test aniadir Pila ", 60, "*"));
         System.out.println(io.box('*', 60, '*'));
 
-        System.out.println("Crear Cola<Object>. Podra contener cualquier tipo de objeto.");
-        Cola<Object> miCola = new Cola<Object>();
-        miCola.print();
+        System.out.println("Crear Pila<Object>. Podra contener cualquier tipo de objeto.");
+        Pila<Object> miPila = new Pila<Object>();
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Crear objetos ArrayList<String> para trabajar con instancias de objeto");
-        io.esperarUsuario();
         ArrayList<String> lista0 = new ArrayList<String>();
         // Lista lista0 = new Lista();
         lista0.add("lista 0 cero");
@@ -51,89 +51,88 @@ public class DemoCola {
         lista4.add("lista 4 dos");
 
         System.out.println("Aniadir un elemento \"lista0\"");
-        miCola.encolar(lista0);
-        miCola.print();
+        miPila.apilar(lista0);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"lista1\"");
-        miCola.encolar(lista1);
-        miCola.print();
+        miPila.apilar(lista1);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"lista2\"");
-        miCola.encolar(lista2);
-        miCola.print();
+        miPila.apilar(lista2);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"lista3\"");
-        miCola.encolar(lista3);
-        miCola.print();
+        miPila.apilar(lista3);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"lista4\"");
-        miCola.encolar(lista4);
-        miCola.print();
+        miPila.apilar(lista4);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"cero\"");
-        miCola.encolar("cero");
-        miCola.print();
+        miPila.apilar("cero");
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"uno\"");
-        miCola.encolar("uno");
-        miCola.print();
+        miPila.apilar("uno");
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"dos\"");
-        miCola.encolar("dos");
-        miCola.print();
+        miPila.apilar("dos");
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"tres\"");
-        miCola.encolar("tres");
-        miCola.print();
+        miPila.apilar("tres");
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"Integer\"");
-        miCola.encolar((Integer) 25);
-        miCola.print();
+        miPila.apilar((Integer) 25);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"Double\"");
-        miCola.encolar((Double) 25.125);
-        miCola.print();
+        miPila.apilar((Double) 25.125);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"Boolean\"");
-        miCola.encolar((Boolean) true);
-        miCola.print();
+        miPila.apilar((Boolean) true);
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println("Aniadir un elemento \"String\"");
-        miCola.encolar("Esto es una cadena");
-        miCola.print();
+        miPila.apilar("Esto es una cadena");
+        miPila.print();
         io.esperarUsuario();
 
         System.out.println(io.box('*', 60, '*'));
-        System.out.println(io.linea(" Test desencolar ", 60, "*"));
+        System.out.println(io.linea(" Test desapilar ", 60, "*"));
         System.out.println(io.box('*', 60, '*'));
 
-        while (!miCola.isVacia()) {
-            // Object elemento = miCola.desencolar();
-            System.out.println("Desencolar e imprimir un elemento");
-            System.out.println(miCola.desencolar());
+        while (!miPila.isVacia()) {
+            System.out.println("Desapilar e imprimir un elemento");
+            System.out.println(miPila.desapilar());
             io.esperarUsuario();
-            System.out.println("Imprimir Cola");
-            System.out.println(miCola);
+            System.out.println("Imprimir Pila");
+            System.out.println(miPila);
             io.esperarUsuario();
         }
 
-        System.out.println("Desencolar e imprimir un elemento");
-        System.out.println(miCola.desencolar());
+        System.out.println("Desapilar e imprimir un elemento");
+        System.out.println(miPila.desapilar());
         io.esperarUsuario();
-        System.out.println("Imprimir Cola");
-        System.out.println(miCola);
+        System.out.println("Imprimir Pila");
+        System.out.println(miPila);
         io.esperarUsuario();
     }
 
