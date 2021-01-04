@@ -148,20 +148,6 @@ public class HashTable {
         }
     }
 
-    private double factorCarga() {
-        double fc = (double) size / vectorPrincipal.length;
-        if (fc > factorCargaAumentar) {
-            redispersar(vectorPrincipal.length * 2);
-        } else if (fc < factorCargaReducir) {
-            redispersar(vectorPrincipal.length / 2);
-        }
-        return (double) size / vectorPrincipal.length;
-    }
-
-    // private double factorCarga() {
-    // return size / principal.length;
-    // }
-
     private void primosPorDefecto() {
         String[] s = io.lineasFichero("src\\resources\\listaPrimos");
 

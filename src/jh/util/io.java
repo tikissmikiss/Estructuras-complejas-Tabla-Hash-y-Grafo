@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 
 import jh.lab1.cola.Cola;
 import jh.lab1.demo.Demo;
-import jh.lab1.lista.Lista;
 
 public class io {
 
