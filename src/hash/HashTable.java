@@ -16,7 +16,7 @@ public class HashTable {
     // Lista de listas de parejas clave:valor
     // He elegido un vector en vez de mi lista enlazada por que permite acceso
     // aleatorio
-    private Lista<Par>[] vectorPrincipal;
+    private Lista<ClaveValor>[] vectorPrincipal;
     private int size;
     private double factorCarga;
     // ************************************************************************
@@ -79,7 +79,7 @@ public class HashTable {
 
         // Crea una lista en cada posión del array
         for (int i = 0; i < vectorPrincipal.length; i++) {
-            vectorPrincipal[i] = new Lista<Par>();
+            vectorPrincipal[i] = new Lista<ClaveValor>();
         }
     }
 
@@ -103,7 +103,7 @@ public class HashTable {
     // ************************************************************************
     public boolean insertar(String clave, Object valor) {
         size++;
-        Par item = new Par(clave, valor);
+        ClaveValor item = new ClaveValor(clave, valor);
         vectorPrincipal[funcionHash(clave)].addDato(item);
 
         // Comprueba, redispersan si es necesario y actualiza el parametro
@@ -129,20 +129,20 @@ public class HashTable {
         iPrimo = getIndicePrimo(newSize);
 
         // Guardamos referencia al vector acual
-        Lista<Par>[] oldVector = vectorPrincipal;
+        Lista<ClaveValor>[] oldVector = vectorPrincipal;
 
         // Redimensionamos el vector al tamaño del primo en la poscion de iPrimo
         vectorPrincipal = new Lista[primos[iPrimo]];
         // Crea una lista en cada posión del array
         for (int i = 0; i < vectorPrincipal.length; i++) {
-            vectorPrincipal[i] = new Lista<Par>();
+            vectorPrincipal[i] = new Lista<ClaveValor>();
         }
 
         size = 0;
         // Pasamos los elementos de la tabla acual a la nueva
         for (int i = 0; i < oldVector.length; i++) {
             while (oldVector[i].getLenght() > 0) {
-                Par item = (Par) oldVector[i].sacarDato(0);
+                ClaveValor item = (ClaveValor) oldVector[i].sacarDato(0);
                 insertar(item.clave, item.valor);
             }
         }
@@ -167,9 +167,9 @@ public class HashTable {
 
     public Object get(String clave) {
         int code = funcionHash(clave);
-        Par auxPar;
+        ClaveValor auxPar;
         Object ret = null;
-        Lista<Par> auxLista = new Lista<>();
+        Lista<ClaveValor> auxLista = new Lista<>();
         while (vectorPrincipal[code].getLenght() > 0 && ret == null) {
             auxPar = vectorPrincipal[code].sacarDato(0);
             auxLista.addDato(auxPar);
@@ -184,9 +184,9 @@ public class HashTable {
 
     public boolean borrar(String clave) {
         int code = funcionHash(clave);
-        Par auxPar;
+        ClaveValor auxPar;
         boolean ret = false;
-        Lista<Par> auxLista = new Lista<>();
+        Lista<ClaveValor> auxLista = new Lista<>();
         while (vectorPrincipal[code].getLenght() > 0 && !ret) {
             auxPar = vectorPrincipal[code].sacarDato(0);
             if (!auxPar.clave.equals(clave))

@@ -1,11 +1,11 @@
 package hash;
 
-class Par {
+class ClaveValor {
     // Ambito de paquete. Sin setters y getters
     String clave;
     Object valor;
 
-    public Par(String clave, Object valor) {
+    public ClaveValor(String clave, Object valor) {
         this.clave = clave;
         this.valor = valor;
     }
