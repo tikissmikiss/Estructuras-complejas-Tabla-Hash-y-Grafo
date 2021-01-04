@@ -1,7 +1,7 @@
 package hash;
 
 class ClaveValor {
-    // Ambito de paquete. Sin setters y getters
+    // Ámbito de paquete. Sin setters y getters
     String clave;
     Object valor;
 

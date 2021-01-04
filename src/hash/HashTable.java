@@ -38,7 +38,7 @@ public class HashTable {
     }
 
     // ************************************************************************
-    // * /Metodos internos\
+    // * /Métodos internos\
     // ************************************************************************
     /**
      * Calcula la posición de inserción
@@ -94,7 +94,7 @@ public class HashTable {
         ClaveValor item = new ClaveValor(clave, valor);
         vectorPrincipal[funcionHash(clave)].addDato(item);
 
-        // Comprueba, redispersan si es necesario y actualiza el parametro
+        // Comprueba, redispersan si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;
 
         if (factorCarga > factorCargaAumentar)
@@ -117,12 +117,12 @@ public class HashTable {
     private void redispersion(int newSize) { // redispersion y redispersion inversa según necesidad
         iPrimo = getIndicePrimo(newSize);
 
-        // Guardamos referencia al vector acual
+        // Guardamos referencia al vector actual
         Lista<ClaveValor>[] oldVector = vectorPrincipal;
 
         // Redimensionamos el vector al tamaño del primo en la posición de iPrimo
         vectorPrincipal = new Lista[primos[iPrimo]];
-        // Crea una lista en cada posión del array
+        // Crea una lista en cada posición del array
         for (int i = 0; i < vectorPrincipal.length; i++) {
             vectorPrincipal[i] = new Lista<ClaveValor>();
         }
