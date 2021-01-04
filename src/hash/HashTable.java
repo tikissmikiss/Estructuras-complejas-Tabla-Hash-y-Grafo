@@ -6,11 +6,16 @@ import jh.lab1.lista.*;
 import jh.util.io;
 
 public class HashTable {
-    private static final double factorCargaAumentar = 1; // Valor para redispersion (aumentar)
-    private static final double factorCargaReducir = (double) 1 / 3; // Valor para redispersion inversa (reducir)
+    // ************************************************************************
+    // * /Constantes\
+    // ************************************************************************
+    private static final double factorCargaAumentar = 1; // Valor para redispersión (aumentar)
+    private static final double factorCargaReducir = (double) 1 / 3; // Valor para redispersión inversa (reducir)
     private static final int primoInicial = 3;
 
-    // /Atributos\
+    // ************************************************************************
+    // * /Atributos\
+    // ************************************************************************
     private int[] primos;
     private int iPrimo;
     // Lista de listas de parejas clave:valor
@@ -19,27 +24,10 @@ public class HashTable {
     private Lista<ClaveValor>[] vectorPrincipal;
     private int size;
     private double factorCarga;
-    // ************************************************************************
-
-    // class Pareja {
-    // // Ambito de paquete. Sin setters y getters
-    // String clave;
-    // T valor;
-
-    // public Pareja(String clave, T valor) {
-    // this.clave = clave;
-    // this.valor = valor;
-    // }
-
-    // }
 
     // ************************************************************************
     // * /Constructores\
-    // public HashTable(Lista<Integer> primos) {
-    // this.primos = primos;
-    // inicializar();
-    // }
-
+    // ************************************************************************
     public HashTable(int[] primos) {
         this.primos = primos;
         inicializar();
@@ -48,10 +36,10 @@ public class HashTable {
     public HashTable() {
         inicializar();
     }
-    // ************************************************************************
 
     // ************************************************************************
     // * /Metodos internos\
+    // ************************************************************************
     /**
      * Calcula la posición de inserción
      * 
@@ -74,10 +62,10 @@ public class HashTable {
 
         iPrimo = getIndicePrimo(primoInicial);
 
-        // Dimensiona el vector al tamaño del primo en la poscion de iPrimo
+        // Dimensiona el vector al tamaño del primo en la posición de iPrimo
         vectorPrincipal = new Lista[primos[iPrimo]];
 
-        // Crea una lista en cada posión del array
+        // Crea una lista en cada posición del array
         for (int i = 0; i < vectorPrincipal.length; i++) {
             vectorPrincipal[i] = new Lista<ClaveValor>();
         }
@@ -99,7 +87,7 @@ public class HashTable {
     }
 
     // ************************************************************************
-    // * /Metodos Publicos\
+    // * /Métodos Públicos\
     // ************************************************************************
     public boolean insertar(String clave, Object valor) {
         size++;
@@ -108,8 +96,9 @@ public class HashTable {
 
         // Comprueba, redispersan si es necesario y actualiza el parametro
         factorCarga = (double) size / vectorPrincipal.length;
+
         if (factorCarga > factorCargaAumentar)
-            redispersar(vectorPrincipal.length * 2);
+            redispersion(vectorPrincipal.length * 2);
 
         return true;
     }
@@ -125,13 +114,13 @@ public class HashTable {
     }
 
     @SuppressWarnings("unchecked")
-    private void redispersar(int newSize) { // redispersion y redispersion inversa segun necesidad
+    private void redispersion(int newSize) { // redispersion y redispersion inversa según necesidad
         iPrimo = getIndicePrimo(newSize);
 
         // Guardamos referencia al vector acual
         Lista<ClaveValor>[] oldVector = vectorPrincipal;
 
-        // Redimensionamos el vector al tamaño del primo en la poscion de iPrimo
+        // Redimensionamos el vector al tamaño del primo en la posición de iPrimo
         vectorPrincipal = new Lista[primos[iPrimo]];
         // Crea una lista en cada posión del array
         for (int i = 0; i < vectorPrincipal.length; i++) {
@@ -139,7 +128,7 @@ public class HashTable {
         }
 
         size = 0;
-        // Pasamos los elementos de la tabla acual a la nueva
+        // Pasamos los elementos de la tabla actual a la nueva
         for (int i = 0; i < oldVector.length; i++) {
             while (oldVector[i].getLenght() > 0) {
                 ClaveValor item = (ClaveValor) oldVector[i].sacarDato(0);
@@ -200,16 +189,16 @@ public class HashTable {
             vectorPrincipal[code].addDato(auxLista.sacarDato(auxLista.getLenght() - 1), 0);
         }
 
-        // Comprueba, redispersan si es necesario y actualiza el parametro
+        // Comprueba, redispersión si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;
         if (factorCarga < factorCargaReducir)
-            redispersar(vectorPrincipal.length / 2);
+            redispersion(vectorPrincipal.length / 2);
 
         return ret;
     }
 
     // ************************************************************************
-    // * /Metodos override\
+    // * /Métodos override\
     // ************************************************************************
 
     // ************************************************************************
