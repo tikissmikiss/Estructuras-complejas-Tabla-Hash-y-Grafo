@@ -6,6 +6,9 @@ import jh.lab1.lista.*;
 import jh.util.io;
 
 public class HashTable {
+    // TODO - En clase ha dicho que no se admiten objetos con calve repetida. El
+    // codigo actual lo acepta.
+
     // ************************************************************************
     // * /Constantes\
     // ************************************************************************
