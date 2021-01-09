@@ -154,6 +154,19 @@ public class Lista<T> {
     }
 
     /**
+     * Busca si existe algun elemento equivalente y lo retorna
+     * 
+     * @param dato dato buscado
+     * @return una referencia al elemento coincidente o null si no existe
+     */
+    public T getDato(T dato) {
+        if (cabeza == null)
+            return null;
+        Nodo<T> aux = buscarNodo(new Nodo<>(dato), cabeza);
+        return aux != null ? aux.getDato() : null;
+    }
+
+    /**
      * Imprime por consola todos los elementos que contiene la lista.
      */
     public void printLista() {
@@ -261,7 +274,8 @@ public class Lista<T> {
     private Nodo<T> buscarNodo(Nodo<T> nodoBuscado, Nodo<T> nodoActual) {
         if (nodoActual == null || nodoBuscado == null) // algun nodo no inicializado?
             return null;
-        if (nodoActual.getDato() != nodoBuscado.getDato()) // no son iguales?
+        // if (nodoActual.getDato() != nodoBuscado.getDato()) // no son iguales?
+        if (!nodoActual.getDato().equals(nodoBuscado.getDato())) // Permite instancias diferentes pero equivalentes
             if (nodoActual.getSiguiente() != null) // no es el ultimo nodo?
                 return buscarNodo(nodoBuscado, nodoActual.getSiguiente());
             else
