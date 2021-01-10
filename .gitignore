@@ -1,0 +1,11 @@
+-- project eclipse files
+**/**/.classpath
+**/**/.project
+**/**/.settings
+**/**/.factorypath
+**/**/target
+.metadata/
+*.class
+
+-- VS
+.vscode/
