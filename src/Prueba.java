@@ -5,11 +5,11 @@ public class Prueba {
     public static void main(String[] args) throws Exception {
 
         pruebaGrafo();
-        pruebaTabla();
+        // pruebaTabla();
 
     }
 
-    private static void pruebaGrafo() {
+    private static void pruebaGrafo() throws Exception {
 
         // Instanciar grafo dirigido
         Grafo grafo = new Grafo(true); // dirigido
@@ -23,8 +23,8 @@ public class Prueba {
 
     }
 
-    private static void testGrafo(Grafo grafo) {
-        if (grafo.esDisigido()) {
+    private static void testGrafo(Grafo grafo) throws Exception {
+        if (grafo.esDirigido()) {
             System.out.println("[obj0]--4-->[obj1]<--6--[obj4]");
             System.out.println("  | ^ \\       | ^ ");
             System.out.println("  | |  \\      | | ");
@@ -163,6 +163,7 @@ public class Prueba {
         grafo.establecerValorNodo(o3, "Objeto 3");
         System.out.println("Establecer el valor de o4 a \"Objeto 4\"");
         grafo.establecerValorNodo(o4, "Objeto 4");
+        // grafo.establecerValorNodo("obj4", "Objeto 4");
 
         // ► obtenerValorNodo(x) → objeto encapsulado en el vértice
         System.out.println("\nObtener los valores de los nodos");

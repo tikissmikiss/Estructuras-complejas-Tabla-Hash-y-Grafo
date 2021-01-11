@@ -1,12 +1,12 @@
 package hash;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import jh.lab1.lista.*;
 import jh.util.io;
 
 public class HashTable {
-    // TODO - En clase ha dicho que no se admiten objetos con calve repetida. El
     // codigo actual lo acepta.
 
     // ************************************************************************
@@ -95,25 +95,20 @@ public class HashTable {
     public boolean insertar(String clave, Object valor) {
         size++;
         ClaveValor item = new ClaveValor(clave, valor);
-        vectorPrincipal[funcionHash(clave)].addDato(item);
+        boolean res = false;
+        if (Objects.isNull(get(clave))) {
+            vectorPrincipal[funcionHash(clave)].addDato(item);
 
-        // Comprueba, redispersan si es necesario y actualiza el parámetro
-        factorCarga = (double) size / vectorPrincipal.length;
+            // Comprueba, redispersan si es necesario y actualiza el parámetro
+            factorCarga = (double) size / vectorPrincipal.length;
 
-        if (factorCarga > factorCargaAumentar)
-            redispersion(vectorPrincipal.length * 2);
+            if (factorCarga > factorCargaAumentar)
+                redispersion(vectorPrincipal.length * 2);
 
-        return true;
-    }
+                res = true;
+        }
 
-    /**
-     * Usa el propio String como clave
-     * 
-     * @param string
-     * @return
-     */
-    public boolean insertar(String string) {
-        return insertar(string, string);
+        return res;
     }
 
     @SuppressWarnings("unchecked")
@@ -158,46 +153,18 @@ public class HashTable {
     }
 
     public Object get(String clave) {
-        int code = funcionHash(clave);
-        ClaveValor auxPar;
-        Object ret = null;
-        Lista<ClaveValor> auxLista = new Lista<>();
-        while (vectorPrincipal[code].getLenght() > 0 && ret == null) {
-            auxPar = vectorPrincipal[code].sacarDato(0);
-            auxLista.addDato(auxPar);
-            if (auxPar.clave.equals(clave))
-                ret = auxPar.valor;
-        }
-        while (auxLista.getLenght() > 0) {
-            vectorPrincipal[code].addDato(auxLista.sacarDato(auxLista.getLenght() - 1), 0);
-        }
-        return ret;
+        return vectorPrincipal[funcionHash(clave)].getDato(new ClaveValor(clave, null));
     }
 
-    public boolean borrar(String clave) {
-        int code = funcionHash(clave);
-        ClaveValor auxPar;
-        boolean ret = false;
-        Lista<ClaveValor> auxLista = new Lista<>();
-        while (vectorPrincipal[code].getLenght() > 0 && !ret) {
-            auxPar = vectorPrincipal[code].sacarDato(0);
-            if (!auxPar.clave.equals(clave))
-                auxLista.addDato(auxPar);
-            else {
-                ret = true;
-                size--;
-            }
-        }
-        while (auxLista.getLenght() > 0) {
-            vectorPrincipal[code].addDato(auxLista.sacarDato(auxLista.getLenght() - 1), 0);
-        }
+    public Object borrar(String clave) {
+        Object res =  vectorPrincipal[funcionHash(clave)].sacarDato(new ClaveValor(clave, null));
 
         // Comprueba, redispersión si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;
         if (factorCarga < factorCargaReducir)
             redispersion(vectorPrincipal.length / 2);
 
-        return ret;
+        return res;
     }
 
     // ************************************************************************

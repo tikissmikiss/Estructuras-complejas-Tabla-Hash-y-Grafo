@@ -66,7 +66,7 @@ public class Grafo {
      * @param x Object con el elemento a añadir
      * @return devuelve una referencia al nuevo Vertice
      */
-    public Nodo addNodo(Object x) { // → nodo
+    public Nodo addNodo(Object x) throws Exception { // → nodo
         Nodo nodo = new Nodo(numNodos, x);
 
         // Comprobar si no existe ya el nodo
@@ -74,10 +74,11 @@ public class Grafo {
         if (aux == null) {// Si no existe se añade
             nodos.addDato(nodo);
             mAdyacencia.add();
-        } else // Si existe se devuelve el nodo existente
-            nodo = aux;
-
-        numNodos = nodos.getLenght();
+            numNodos = nodos.getLenght();
+        } else { // Si existe se devuelve el nodo existente
+            throw new Exception("El objeto que se quiere introducir ya existe");
+        }
+        
         return nodo;
     }
 
@@ -180,6 +181,11 @@ public class Grafo {
         return x.getValor();
     }
 
+    public void establecerValorNodo(Object x, Object a) {
+        Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
+        vX = nodos.getDato(vX);
+	}
+
     public void establecerValorNodo(Nodo x, Object a) { // → asignar a como valor de x
         x.setValor(a);
     }
@@ -225,9 +231,10 @@ public class Grafo {
         mAdyacencia.print();
     }
 
-	public boolean esDisigido() {
-		return dirigido;
-	}
+    public boolean esDirigido() {
+        return dirigido;
+    }
+
 
     // ************************************************************************
     // * /Setters & Getters\
