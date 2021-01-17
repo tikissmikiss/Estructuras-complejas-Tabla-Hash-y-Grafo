@@ -12,9 +12,9 @@ public class HashTable {
     // ************************************************************************
     // * /Constantes\
     // ************************************************************************
-    private static final double factorCargaAumentar = 1; // Valor para redispersión (aumentar)
-    private static final double factorCargaReducir = (double) 1 / 3; // Valor para redispersión inversa (reducir)
-    private static final int primoInicial = 3;
+    private static final double FACTOR_CARGA_AUMENTAR = 1; // Valor para redispersión (aumentar)
+    private static final double FACTOR_CARGA_REDUCIR = (double) 1 / 3; // Valor para redispersión inversa (reducir)
+    private static final int PRIMO_INICIAL = 3;
 
     // ************************************************************************
     // * /Atributos\
@@ -63,7 +63,7 @@ public class HashTable {
         if (primos == null)
             primosPorDefecto();
 
-        iPrimo = getIndicePrimo(primoInicial);
+        iPrimo = getIndicePrimo(PRIMO_INICIAL);
 
         // Dimensiona el vector al tamaño del primo en la posición de iPrimo
         vectorPrincipal = new Lista[primos[iPrimo]];
@@ -102,7 +102,7 @@ public class HashTable {
             // Comprueba, redispersan si es necesario y actualiza el parámetro
             factorCarga = (double) size / vectorPrincipal.length;
 
-            if (factorCarga > factorCargaAumentar)
+            if (factorCarga > FACTOR_CARGA_AUMENTAR)
                 redispersion(vectorPrincipal.length * 2);
 
                 res = true;
@@ -161,7 +161,7 @@ public class HashTable {
 
         // Comprueba, redispersión si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;
-        if (factorCarga < factorCargaReducir)
+        if (factorCarga < FACTOR_CARGA_REDUCIR)
             redispersion(vectorPrincipal.length / 2);
 
         return res;
