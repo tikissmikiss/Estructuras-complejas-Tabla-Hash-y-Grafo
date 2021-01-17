@@ -12,7 +12,7 @@ class Matriz {
     // Ambito de paquete
     Matriz() {
         size = 0;
-        matriz = new Integer[2][2];
+        matriz = new Integer[1][1];
     }
 
     void set(int fila, int columna, Integer peso) {

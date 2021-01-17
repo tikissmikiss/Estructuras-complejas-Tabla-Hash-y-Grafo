@@ -5,7 +5,7 @@ public class Prueba {
     public static void main(String[] args) throws Exception {
 
         pruebaGrafo();
-        // pruebaTabla();
+        pruebaTabla();
 
     }
 
@@ -82,12 +82,12 @@ public class Prueba {
 
         // ► borrar(x, y) → borrar arista que une x e y
         System.out.println("Borrar arista o2-o0");
-        grafo.borrar(o2, o0);
+        grafo.borrarArista(o2, o0);
         // Imprimir matriz
         grafo.printMatrizAdyacencia();
 
         System.out.println("Borrar arista o3-o1");
-        grafo.borrar(o3, o1);
+        grafo.borrarArista(o3, o1);
         // Imprimir matriz
         grafo.printMatrizAdyacencia();
 
@@ -185,8 +185,6 @@ public class Prueba {
         // Imprimir matriz
         grafo.printMatrizAdyacencia();
 
-        System.out.println("Borrar elemento que contiene \"Objeto 4\"");
-        grafo.borrar("Objeto 4");
         // Imprimir matriz
         grafo.printMatrizAdyacencia();
     }

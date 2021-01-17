@@ -75,17 +75,17 @@ public class Grafo {
             nodos.addDato(nodo);
             mAdyacencia.add();
             numNodos = nodos.getLenght();
-        } else { // Si existe se devuelve el nodo existente
+        } else {
             throw new Exception("El objeto que se quiere introducir ya existe");
         }
         
         return nodo;
     }
 
-    public boolean borrar(Object x) { // → nodo y referencias
-        Nodo nodo = new Nodo(numNodos, x);
-        return borrar(nodo);
-    }
+    // public boolean borrar(Object x) { // → nodo y referencias
+    //     Nodo nodo = new Nodo(numNodos, x);
+    //     return borrar(nodo);
+    // }
 
     public boolean borrar(Nodo x) { // → nodo y referencias
         boolean ret = false;
@@ -100,21 +100,21 @@ public class Grafo {
         return ret;
     }
 
-    public boolean adyacente(Object x, Object y) { // → bool si x, y son adyacentes
-        return obtenerValorArco(x, y) != null;
-    }
+    // public boolean adyacente(Object x, Object y) { // → bool si x, y son adyacentes
+    //     return obtenerValorArco(x, y) != null;
+    // }
 
     public boolean adyacente(Nodo x, Nodo y) { // → bool si x, y son adyacentes
         return obtenerValorArco(x, y) != null;
     }
 
-    public Object[] vecinos(Object x) { // → nodos adyacentes a x
-        Nodo nodo = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
-        nodo = nodos.getDato(nodo);
-        return vecinos(nodo);
-    }
+    // public Object[] vecinos(Object x) { // → nodos adyacentes a x
+    //     Nodo nodo = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
+    //     nodo = nodos.getDato(nodo);
+    //     return vecinos(nodo);
+    // }
 
-    public Object[] vecinos(Nodo x) { // → nodos adyacentes a x
+    public Nodo[] vecinos(Nodo x) { // → nodos adyacentes a x
         Lista<Nodo> aux = new Lista<>();
         int fila = x.getClave();
 
@@ -124,9 +124,9 @@ public class Grafo {
                 aux.addDato(nodos.getDato(i));
 
         // Extraer los valores a un array
-        Object[] ret = new Object[aux.getLenght()];
+        Nodo[] ret = new Nodo[aux.getLenght()];
         for (int i = 0; i < ret.length; i++)
-            ret[i] = aux.sacarDato(0).getValor();
+            ret[i] = aux.sacarDato(0);
 
         return ret;
     }
@@ -166,7 +166,7 @@ public class Grafo {
         mAdyacencia.set(fila, columna, peso);
     }
 
-    public boolean borrar(Nodo x, Nodo y) { // → borrar arista que une x e y
+    public boolean borrarArista(Nodo x, Nodo y) { // → borrar arista que une x e y
         boolean ret = false;
         if (x != null && y != null) {
             mAdyacencia.set(x.getClave(), y.getClave(), null);
@@ -181,23 +181,23 @@ public class Grafo {
         return x.getValor();
     }
 
-    public void establecerValorNodo(Object x, Object a) {
-        Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
-        vX = nodos.getDato(vX);
-	}
+    // public void establecerValorNodo(Object x, Object a) {
+    //     Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
+    //     vX = nodos.getDato(vX);
+	// }
 
     public void establecerValorNodo(Nodo x, Object a) { // → asignar a como valor de x
         x.setValor(a);
     }
 
     // Operaciones básicas sobre grafos ponderados
-    public Integer obtenerValorArco(Object x, Object y) { // No se pide pero parece oportuno
-        Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
-        Nodo vY = new Nodo(numNodos, y); // No importa la clave. El .equals() solo compara el valor
-        vX = nodos.getDato(vX);
-        vY = nodos.getDato(vY);
-        return obtenerValorArco(vX, vY);
-    }
+    // public Integer obtenerValorArco(Object x, Object y) { // No se pide pero parece oportuno
+    //     Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
+    //     Nodo vY = new Nodo(numNodos, y); // No importa la clave. El .equals() solo compara el valor
+    //     vX = nodos.getDato(vX);
+    //     vY = nodos.getDato(vY);
+    //     return obtenerValorArco(vX, vY);
+    // }
 
     public Integer obtenerValorArco(Nodo x, Nodo y) { // No se pide pero parece oportuno
         Integer peso = null;
@@ -207,13 +207,13 @@ public class Grafo {
         return peso;
     }
 
-    public boolean establecerValorArco(Object x, Object y, int a) {
-        Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
-        Nodo vY = new Nodo(numNodos, y); // No importa la clave. El .equals() solo compara el valor
-        vX = nodos.getDato(vX);
-        vY = nodos.getDato(vY);
-        return establecerValorArco(vX, vY, a);
-    }
+    // public boolean establecerValorArco(Object x, Object y, int a) {
+    //     Nodo vX = new Nodo(numNodos, x); // No importa la clave. El .equals() solo compara el valor
+    //     Nodo vY = new Nodo(numNodos, y); // No importa la clave. El .equals() solo compara el valor
+    //     vX = nodos.getDato(vX);
+    //     vY = nodos.getDato(vY);
+    //     return establecerValorArco(vX, vY, a);
+    // }
 
     public boolean establecerValorArco(Nodo x, Nodo y, int a) {
         boolean ret = false;

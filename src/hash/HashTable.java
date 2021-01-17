@@ -31,11 +31,6 @@ public class HashTable {
     // ************************************************************************
     // * /Constructores\
     // ************************************************************************
-    public HashTable(int[] primos) {
-        this.primos = primos;
-        inicializar();
-    }
-
     public HashTable() {
         inicializar();
     }
@@ -105,7 +100,7 @@ public class HashTable {
             if (factorCarga > factorCargaAumentar)
                 redispersion(vectorPrincipal.length * 2);
 
-                res = true;
+            res = true;
         }
 
         return res;
@@ -157,7 +152,7 @@ public class HashTable {
     }
 
     public Object borrar(String clave) {
-        Object res =  vectorPrincipal[funcionHash(clave)].sacarDato(new ClaveValor(clave, null));
+        Object res = vectorPrincipal[funcionHash(clave)].sacarDato(new ClaveValor(clave, null));
 
         // Comprueba, redispersión si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;
