@@ -87,6 +87,11 @@ public class HashTable {
     // ************************************************************************
     // * /Métodos Públicos\
     // ************************************************************************
+
+    public boolean buscar(String clave) {
+        return vectorPrincipal[funcionHash(clave)].getDato(new ClaveValor(clave, null)) != null;
+    }
+
     public boolean insertar(String clave, Object valor) {
         size++;
         ClaveValor item = new ClaveValor(clave, valor);
@@ -147,12 +152,15 @@ public class HashTable {
                 + Arrays.toString(vectorPrincipal) + "]";
     }
 
-    public Object get(String clave) {
+    public ClaveValor get(String clave) {
         return vectorPrincipal[funcionHash(clave)].getDato(new ClaveValor(clave, null));
     }
 
-    public Object borrar(String clave) {
-        Object res = vectorPrincipal[funcionHash(clave)].sacarDato(new ClaveValor(clave, null));
+    public ClaveValor borrar(String clave) {
+        ClaveValor res = vectorPrincipal[funcionHash(clave)].sacarDato(new ClaveValor(clave, null));
+
+        if (res != null)
+            size--;
 
         // Comprueba, redispersión si es necesario y actualiza el parámetro
         factorCarga = (double) size / vectorPrincipal.length;

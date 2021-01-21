@@ -2,26 +2,15 @@ import grafo.*;
 import hash.HashTable;
 
 public class Prueba {
-    static String[] nombres = { "Maria", "José", "Carmen", "Antonio", "Ana", "Juan", "Isabel", "Manuel", "Dolores",
-            "Francisco", "Pilar", "Luis", "Teresa", "Javier", "Rosa", "Miguel", "Josefa", "Carlos", "Cristina", "Angel",
-            "Ángeles", "Jesús", "Laura", "David", "Antonia", "Pedro", "Elena", "Daniel", "Marta", "Alejandro",
-            "Francisca", "Maria", "Lucia", "Alberto", "Mercedes", "Rafael", "Luisa", "Fernando", "Concepción", "Pablo",
-            "Rosario", "Jorge", "Jose", "Ramón", "Paula", "Sergio", "Sara", "Enrique", "Raquel", "Andrés", "Juana",
-            "Diego", "Manuela", "Vicente", "Eva", "Víctor", "Rocío", "Adrián", "Beatriz", "Ignacio", "Patricia",
-            "Álvaro", "Jesús", "Raúl", "Victoria", "Eduardo", "Julia", "Iván", "Belen", "Oscar", "Andrea", "Joaquín",
-            "Silvia", "Rubén", "Encarnación", "Santiago", "Alba", "Roberto", "Esther", "Mario", "Nuria", "Gabriel",
-            "Irene", "Alfonso", "Montserrat", "Jaime", "Angela", "Marcos", "Sandra", "Ricardo", "Inmaculada", "Julio",
-            "Mónica", "Emilio", "Alicia", "Salvador", "Yolanda", "Hugo", "Sonia", "Guillermo", "Mar", "Tomas", "Marina",
-            "Julian", "Margarita", "Martin", "Susana", "Jordi", "Natalia", "Mohamed", "Claudia", "Nicolas", "Sofia",
-            "Agustin", "Carolina", "Felix", "Amparo", "Gonzalo", "Ines", "Cristian", "Gloria", "Cesar", "Nieves",
-            "Josep", "Veronica", "Joan", "Lourdes", "Marc", "Soledad", "Sebastian", "Carla", "Samuel", "Alejandra",
-            "Domingo", "Daniela", "Felipe", "Luz", "Ismael", "Noelia", "Alfredo", "Lorena", "Hector", "Begoña", "Lucas",
-            "Fatima", "Mariano", "Consuelo", "Aitor", "Asuncion", "Alex", "Olga", "Rodrigo", "Blanca", "Iker", "Nerea",
-            "Xavier", "Miriam", "Esteban", "Esperanza", "Gregorio", "Milagros", "Alexander", "Clara", "Marco",
-            "Catalina", "Arturo", "Lidia", "Lorenzo", "Aurora", "Mateo", "Celia", "Albert", "Magdalena", "Borja",
-            "Anna", "Eugenio", "Emilia", "Cristobal", "Adriana", "Aaron", "Elisa", "Joel", "Martina", "Dario",
-            "Eugenia", "Valentin", "Vanesa", "Isaac", "Virginia", "German", "Ainhoa", "Jonathan", "Gema", "Adolfo",
-            "Josefina", "Christian", "Purificacion", "Pau", "Diana", "Eric" };
+    static String[] nombres = { "Maria", "Maria", "José", "Jose", "Carmen", "Antonio", "Ana", "Juan", "Isabel",
+            "Manuel", "Dolores", "Francisco", "Pilar", "Luis", "Teresa", "Javier", "Rosa", "Miguel", "Josefa", "Carlos",
+            "Cristina", "Angel", "Francisca", "Lucia", "Alberto", "Mercedes", "Rafael", "Luisa", "Fernando",
+            "Concepción", "Pablo", "Diego", "Manuela", "Vicente", "Eva", "Víctor", "Rocío", "Adrián", "Beatriz",
+            "Ignacio", "Patricia", "Álvaro", "Raúl", "Victoria", "Eduardo", "Julia", "Iván", "Belen", "Oscar", "Andrea",
+            "Joaquín", "Silvia", "Rubén", "Soledad", "Sebastian", "Carla", "Samuel", "Alejandra", "Fatima", "Mariano",
+            "Consuelo", "Aitor", "Asuncion", "Alex", "Olga", "Rodrigo", "Blanca", "Iker", "Nerea", "Eugenia",
+            "Valentin", "Vanesa", "Isaac", "Virginia", "German", "Ainhoa", "Jonathan", "Gema", "Adolfo", "Josefina",
+            "Christian", "Purificacion", "Pau", "Diana", "Eric" };
 
     public static void main(String[] args) throws Exception {
 
@@ -215,11 +204,21 @@ public class Prueba {
 
         leerDeTabla(tabla);
 
-        borrarDeTabla(tabla);
-
-        insertarEnTabla(tabla);
+        buscarDeTabla(tabla);
 
         borrarDeTabla(tabla);
+    }
+
+    private static void buscarDeTabla(HashTable tabla) {
+        String[] elementos = { "Vicente", "Eva", "perro", "Víctor", "Rocío", "gato", "Adrián", "avion", "Beatriz" };
+
+        System.out.println("La tabla solo contiene nombres de personas");
+        for (String e : elementos) {
+            if (tabla.buscar(e))
+                System.out.println("El elemento \"" + e + "\" esta en la tabla.");
+            else
+                System.out.println("El elemento \"" + e + "\" no esta en la tabla.");
+        }
     }
 
     private static void borrarDeTabla(HashTable tabla) {
